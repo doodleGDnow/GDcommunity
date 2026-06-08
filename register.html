@@ -40,3 +40,22 @@
 
 </body>
 </html>
+
+<script type="module">
+import { register } from "./js/auth.js";
+
+document.querySelector("button").onclick = async () => {
+    const inputs = document.querySelectorAll("input");
+
+    const email = inputs[1].value;
+    const password = inputs[2].value;
+
+    try {
+        await register(email, password);
+        alert("Account created 🎮");
+        window.location.href = "login.html";
+    } catch (e) {
+        alert(e.message);
+    }
+};
+</script>
