@@ -34,3 +34,20 @@
 
 </body>
 </html>
+
+<script type="module">
+import { login, loginWithGoogle } from "./js/auth.js";
+
+document.querySelector("button").onclick = async () => {
+    const email = document.querySelectorAll("input")[0].value;
+    const password = document.querySelectorAll("input")[1].value;
+
+    try {
+        await login(email, password);
+        alert("Login successful 🎮");
+        window.location.href = "chat.html";
+    } catch (e) {
+        alert(e.message);
+    }
+};
+</script>
