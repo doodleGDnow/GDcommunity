@@ -53,3 +53,14 @@ document.querySelector("button").onclick = async () => {
 </script>
 
 <button id="google">Login with Google</button>
+<script type="module">
+import { auth } from "./js/firebase.js";
+import { onAuthStateChanged } 
+from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        alert("You must login to chat 🔒");
+    }
+});
+</script>
