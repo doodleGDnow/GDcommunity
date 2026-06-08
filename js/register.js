@@ -25,3 +25,16 @@ async function register() {
     console.log(error.message);
   }
 }
+
+const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+const user = userCredential.user;
+
+console.log("AUTH OK:", user.uid);
+
+await setDoc(doc(db, "users", user.uid), {
+  username: username,
+  email: email,
+  createdAt: serverTimestamp()
+});
+
+console.log("FIRESTORE OK 🔥");
