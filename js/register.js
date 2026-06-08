@@ -38,3 +38,4 @@ await setDoc(doc(db, "users", user.uid), {
 });
 
 console.log("FIRESTORE OK 🔥");
+alert("FIRESTORE OK 🔥 ");
